@@ -93,7 +93,7 @@ RSpec.describe QuestionsController, type: :controller do
       new_title = RandomData.random_sentence
       new_body = RandomData.random_paragraph
 
-      put :update, id: my_question.id, post: {title: new_title, body: new_body}
+      put :update, id: my_question.id, question: {title: new_title, body: new_body}
 
       # #3
       updated_question = assigns(:question)
@@ -109,6 +109,19 @@ RSpec.describe QuestionsController, type: :controller do
       # #4
       put :update, id: my_question.id, question: {title: new_title, body: new_body}
       expect(response).to redirect_to my_question
+    end
+  end
+
+  describe "DELETE destroy" do
+    it "deletes the question" do
+      delete :destroy, {id: my_question.id}
+      count = Question.where({id: my_question.id}).size
+      expect(count).to eq 0
+    end
+
+    it "redirects to questions index" do
+      delete :destroy, {id: my_question.id}
+      expect(response).to redirect_to questions_path
     end
   end
 end

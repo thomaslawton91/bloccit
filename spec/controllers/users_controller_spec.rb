@@ -28,6 +28,11 @@ RSpec.describe UsersController, type: :controller do
       expect(response).to have_http_status(:redirect)
     end
 
+    it "renders confirmation page" do
+      post :create, user: new_user_attributes
+      expect(response).to render_template :confirm
+    end
+
     # #4
     it "creates a new user" do
       expect{

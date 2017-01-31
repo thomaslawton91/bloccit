@@ -4,10 +4,9 @@ RSpec.describe SponsoredPost, type: :model do
   let(:name) { RandomData.random_sentence }
   let(:description) { RandomData.random_paragraph }
 
-let(:topic) { Topic.create!(name: name, description: description) }
-let(:sponsored_post) { topic.sponsored_posts.create!(title: "Title", body: "Body", price: 0) }
+  let(:topic) { Topic.create!(name: name, description: description) }
+  let(:sponsored_post) { topic.sponsored_posts.create!(title: "Title", body: "Body", price: 0) }
 
-# #1
   describe "attributes" do
     it "has expected attributes" do
       expect(sponsored_post).to have_attributes(title: "Title", body: "Body", price: 0)

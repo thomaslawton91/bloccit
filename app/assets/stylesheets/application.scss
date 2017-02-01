@@ -17,7 +17,14 @@
 @import "bootstrap";
 
 .user-info {
-  margin-top: 9px;
+  display: inline-block;
+  text-align: left;
+}
+
+.grav {
+  float: right;
+  margin-bottom: 5px;
+  margin-left: 2px;
 }
 
 .nav {

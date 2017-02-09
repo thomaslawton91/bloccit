@@ -49,6 +49,13 @@ posts = Post.all
   )
 end
 
+me = User.create!(
+  name: 'Thomas Lawton',
+  email: 'thomaslawton91@gmail.com',
+  password: 'helloworld',
+  role: 'admin'
+)
+
 # Create an admin user
 admin = User.create!(
   name:     'Admin User',
@@ -69,4 +76,4 @@ puts "#{User.count} users created"
 puts "#{Topic.count} topics created"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
-puts "#{Votes.count} votes created"
+puts "#{Vote.count} votes created"
